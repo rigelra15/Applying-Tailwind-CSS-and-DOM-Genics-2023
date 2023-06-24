@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThermoConvert | Convert Any Temperature Type</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="text-4xl font-bold text-center p-4">
+        <h1 id="header">TempConverter</h1>
+    </div>
+    <div>
+        <ul class="grid gap-5 grid-cols-5 text-center p-4 text-2xl">
+            <li class="border-2 p-2 rounded-full border-solid border-blue-500">Celcius</li>
+            <li class="border-2 p-2 rounded-full border-solid border-red-500">Réaumur</li>
+            <li class="border-2 p-2 rounded-full border-solid border-green-500">Fahrenheit</li>
+            <li class="border-2 p-2 rounded-full border-solid border-orange-300">Kelvin</li>
+            <li class="border-2 p-2 rounded-full border-solid border-purple-500">Rankine</li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <form class="grid gap-5 grid-cols-5 mt-2 mb-5 text-center">
+                <div class="text-center">
+                    <input class="text-center border-2 border-blue-200 py-2 rounded-full" type="number" step="any" id="celciusInput" placeholder="Celcius" value=""> <span class="font-bold">°C</span>
+                    <input onclick="convertCelciusToRe_F_K_Ra()" id="convertCelcius" type="button" value="Convert" class="hover:font-bold bg-blue-100/80 border-2 px-4 py-2 m-5 rounded-full hover:bg-blue-500 hover:text-white hover:ease duration-500 hover:border-blue-600 hover:px-5">
+                </div>
+                <div class="text-center">
+                    <input class="text-center border-2 border-red-200 py-2 rounded-full" type="number" step="any" id="reamurInput" placeholder="Réaumur" value=""> <span class="font-bold">°Re</span>
+                    <input onclick="convertReamurToC_F_K_Ra()" id="convertReamur" type="button" value="Convert" class="hover:font-bold bg-red-100/80 border-2 px-4 py-2 m-5 rounded-full hover:bg-red-500 hover:text-white hover:ease duration-500 hover:border-red-600 hover:px-5">
+                </div>
+                <div class="text-center">
+                    <input class="text-center border-2 border-green-200 py-2 rounded-full" type="number" step="any" id="fahrenheitInput" placeholder="Fahrenheit" value=""> <span class="font-bold">°F</span>
+                    <input onclick="convertFahrenheitToC_Re_K_Ra()" id="convertFahrenreit" type="button" value="Convert" class="hover:font-bold bg-green-100/80 border-2 px-4 py-2 m-5 rounded-full hover:bg-green-500 hover:text-white hover:ease duration-500 hover:border-green-600 hover:px-5">
+                </div>
+                <div class="text-center">
+                    <input class="text-center border-2 border-orange-200 py-2 rounded-full" type="number" step="any" id="kelvinInput" placeholder="Kelvin" value=""><span class="font-bold"> K</span>
+                    <input onclick="convertKelvinToC_Re_F_Ra()" id="convertKelvin" type="button" value="Convert" class="hover:font-bold bg-orange-100/80 border-2 px-4 py-2 m-5 rounded-full hover:bg-orange-300 hover:text-white hover:ease duration-500 hover:border-orange-400 hover:px-5">
+                </div>
+                <div class="text-center">
+                    <input class="text-center border-2 border-purple-200 py-2 rounded-full" type="number" step="any" id="rankineInput" placeholder="Rankine" value=""> <span class="font-bold">°Ra</span>
+                    <input onclick="convertRankineToC_Re_F_K()" id="convertRankine" type="button" value="Convert" class="hover:font-bold bg-purple-100/80 border-2 px-4 py-2 m-5 rounded-full hover:bg-purple-500 hover:text-white hover:ease duration-500 hover:border-purple-600 hover:px-5">
+                </div>
+            </form>
+        </ul>
+    </div>
+    <div class="text-center">
+        <input onclick="reset()" id="reset" type="submit" value="Reset All" class="hover:font-bold bg-red-100/80 border-2 px-4 py-2 rounded-full hover:bg-red-500 hover:text-white hover:ease duration-500 hover:border-red-300 hover:border-red-400 hover:px-20">
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
