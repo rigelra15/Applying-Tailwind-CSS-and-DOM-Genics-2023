@@ -1,3 +1,78 @@
+var inputCelcius = document.getElementById("celciusInput");
+inputCelcius.addEventListener("click", function() {
+    document.getElementById("convertCelcius").style.display = "inline-block";
+    document.getElementById("convertReamur").style.display = "none";
+    document.getElementById("convertFahrenheit").style.display = "none";
+    document.getElementById("convertKelvin").style.display = "none";
+    document.getElementById("convertRankine").style.display = "none";
+
+    document.getElementById("celciusInput").placeholder = "Input Celcius";
+    document.getElementById("reamurInput").placeholder = "RESULT HERE";
+    document.getElementById("fahrenheitInput").placeholder = "RESULT HERE";
+    document.getElementById("kelvinInput").placeholder = "RESULT HERE";
+    document.getElementById("rankineInput").placeholder = "RESULT HERE";
+})
+
+var inputReamur = document.getElementById("reamurInput");
+inputReamur.addEventListener("click", function(){
+    document.getElementById("convertCelcius").style.display = "none";
+    document.getElementById("convertReamur").style.display = "inline-block";
+    document.getElementById("convertFahrenheit").style.display = "none";
+    document.getElementById("convertKelvin").style.display = "none";
+    document.getElementById("convertRankine").style.display = "none";
+
+    document.getElementById("celciusInput").placeholder = "RESULT HERE";
+    document.getElementById("reamurInput").placeholder = "Input Reamur";
+    document.getElementById("fahrenheitInput").placeholder = "RESULT HERE";
+    document.getElementById("kelvinInput").placeholder = "RESULT HERE";
+    document.getElementById("rankineInput").placeholder = "RESULT HERE";
+})
+
+var inputFahrenheit = document.getElementById("fahrenheitInput");
+inputFahrenheit.addEventListener("click", function(){
+    document.getElementById("convertCelcius").style.display = "none";
+    document.getElementById("convertReamur").style.display = "none";
+    document.getElementById("convertFahrenheit").style.display = "inline-block";
+    document.getElementById("convertKelvin").style.display = "none";
+    document.getElementById("convertRankine").style.display = "none";
+
+    document.getElementById("celciusInput").placeholder = "RESULT HERE";
+    document.getElementById("reamurInput").placeholder = "RESULT HERE";
+    document.getElementById("fahrenheitInput").placeholder = "Input Fahrenheit";
+    document.getElementById("kelvinInput").placeholder = "RESULT HERE";
+    document.getElementById("rankineInput").placeholder = "RESULT HERE";
+})
+
+var inputKelvin = document.getElementById("kelvinInput");
+inputKelvin.addEventListener("click", function(){
+    document.getElementById("convertCelcius").style.display = "none";
+    document.getElementById("convertReamur").style.display = "none";
+    document.getElementById("convertFahrenheit").style.display = "none";
+    document.getElementById("convertKelvin").style.display = "inline-block";
+    document.getElementById("convertRankine").style.display = "none";
+
+    document.getElementById("celciusInput").placeholder = "RESULT HERE";
+    document.getElementById("reamurInput").placeholder = "RESULT HERE";
+    document.getElementById("fahrenheitInput").placeholder = "RESULT HERE";
+    document.getElementById("kelvinInput").placeholder = "Input Kelvin";
+    document.getElementById("rankineInput").placeholder = "RESULT HERE";
+})
+
+var inputRankine = document.getElementById("rankineInput");
+inputRankine.addEventListener("click", function(){
+    document.getElementById("convertCelcius").style.display = "none";
+    document.getElementById("convertReamur").style.display = "none";
+    document.getElementById("convertFahrenheit").style.display = "none";
+    document.getElementById("convertKelvin").style.display = "none";
+    document.getElementById("convertRankine").style.display = "inline-block";
+
+    document.getElementById("celciusInput").placeholder = "RESULT HERE";
+    document.getElementById("reamurInput").placeholder = "RESULT HERE";
+    document.getElementById("fahrenheitInput").placeholder = "RESULT HERE";
+    document.getElementById("kelvinInput").placeholder = "RESULT HERE";
+    document.getElementById("rankineInput").placeholder = "Input Rankine";
+})
+
 function convertCelciusToRe_F_K_Ra() {
     var celciusElement = document.getElementById("celciusInput").value;
     if (celciusElement === "") {
@@ -10,23 +85,25 @@ function convertCelciusToRe_F_K_Ra() {
         var CelciusToReamur = parseFloat(celciusElement) * 4 / 5;
         document.getElementById("reamurInput").value = CelciusToReamur;
     }
-
+    
     var fahrenheitElement = document.getElementById("fahrenheitInput").value;
     if (fahrenheitElement === "" || fahrenheitElement !== "") {
         var CelciusToFahrenheit = (parseFloat(celciusElement) * 9 / 5) + 32;
         document.getElementById("fahrenheitInput").value = CelciusToFahrenheit;
     }
-
+    
     var kelvinElement = document.getElementById("kelvinInput").value;
     if (kelvinElement === "" || kelvinElement !== "") {
         var CelciusToKelvin = parseFloat(celciusElement) + 273.15;
         document.getElementById("kelvinInput").value = CelciusToKelvin;
+        document.getElementById("convertKelvin").style.display = "none";
     }
-
+    
     var rankineElement = document.getElementById("rankineInput").value;
     if (rankineElement === "" || rankineElement !== "") {
         var CelciusToRankine = (parseFloat(celciusElement) + 273.15) * 9 / 5;
         document.getElementById("rankineInput").value = CelciusToRankine;
+        document.getElementById("convertRankine").style.display = "none";
     }
 }
 
@@ -42,7 +119,6 @@ function convertReamurToC_F_K_Ra() {
         var ReamurToCelcius = parseFloat(reamurElement) * 5 / 4;
         document.getElementById("celciusInput").value = ReamurToCelcius;
     }
-    
 
     var fahrenheitElement = document.getElementById("fahrenheitInput").value;
     if (fahrenheitElement === "" || fahrenheitElement !== "") {
@@ -153,7 +229,7 @@ function convertRankineToC_Re_F_K() {
     }
     
     var kelvinElement = document.getElementById("kelvinInput").value;
-    if (kelvinElement === "") {
+    if (kelvinElement === "" || kelvinElement !== "") {
         var RankineToKelvin = parseFloat(rankineElement) * 5/9;
         document.getElementById("kelvinInput").value = RankineToKelvin;
     }
@@ -161,9 +237,23 @@ function convertRankineToC_Re_F_K() {
 }
 
 function reset() {
+    alert("Do you want to reset all?");
+
     document.getElementById("celciusInput").value = "";
     document.getElementById("reamurInput").value = "";
     document.getElementById("fahrenheitInput").value = "";
     document.getElementById("kelvinInput").value = "";
     document.getElementById("rankineInput").value = "";
+
+    document.getElementById("convertCelcius").style.display = "inline-block";
+    document.getElementById("convertReamur").style.display = "inline-block";
+    document.getElementById("convertFahrenheit").style.display = "inline-block";
+    document.getElementById("convertKelvin").style.display = "inline-block";
+    document.getElementById("convertRankine").style.display = "inline-block";
+
+    document.getElementById("celciusInput").placeholder = "Click Here...";
+    document.getElementById("reamurInput").placeholder = "Click Here...";
+    document.getElementById("fahrenheitInput").placeholder = "Click Here...";
+    document.getElementById("kelvinInput").placeholder = "Click Here...";
+    document.getElementById("rankineInput").placeholder = "Click Here...";
 }
